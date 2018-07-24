@@ -1,0 +1,71 @@
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+% Formato para los talleres del curso de Métodos Computacionales
+% Universidad de los Andes
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.5in]{geometry}
+%\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{tabularx, amsmath, amssymb}
+%\usepackage[absolute]{textpos} % Para poner una imagen en posiciones arbitrarias
+%\usepackage{multirow}
+%\usepackage{float}
+%\usepackage{hyperref}
+%\decimalpoint
+
+\begin{document}
+\begin{center}
+{\Large Métodos Computacionales} \\
+Resultados Tarea 3 - \textsc{2018-19}\\
+Jer\'onimo Valencia Porras - 201512556\\
+\end{center}
+
+
+\noindent
+\section{Gr\'aficas Campo Magn\'etico}
+
+Para una partícula de carga $q$ moviéndose on velocidad $\vec{v}$ en una zona con un campo magnético $\vec{B}$, tenemos una fuerza $\vec{F} = q\vec{v}\times\vec{B}$. Para el caso de $q=1.5$, $\vec{v}_{inicial} = (0.0,1.0,2.0)$ y $\vec{B} = (0.0,0.0,3.0)$ con la partícula en $\vec{r}_{inicial} = (1.0,0.0,0.0)$ obtenemos una trayectoria como la siguiente
+
+\begin{center}
+\includegraphics[width=17cm]{graficasCM_3D.pdf} 
+\end{center}
+
+\begin{center}
+\includegraphics[width=17cm]{graficasCM_vistas.pdf} 
+\end{center}
+
+
+
+\section{Gr\'aficas Tambor Con Condiciones Cerradas}
+
+
+Para la membrana del tambor cuadrado, con condición inicial gaussiana y solucionando la ecuación de onda en dos dimensiones para un tiempo final de $60$ milisegundos con $\Delta x = 0.01 \ m$ y $\Delta t = 6.67$ microsegundos, lo que representa $9000$ pasos de tiempo, obtuvimos una posición final de la membrana como se muestra en la gráfica de condición final.
+
+
+\begin{center}
+\includegraphics[width=15cm]{graficaTamborInicial.pdf}
+\includegraphics[width=15cm]{graficaTamborCerradas.pdf}  
+\end{center}
+\includegraphics{cortesCerradas.pdf}
+
+Tomando intervalos de $900$ pasos de tiempo, y graficando los cortes transversales en el centro de la membrana, obtuvimos las gráficas que muestran una evolución temporal similar a la de una onda de una dimensión.
+
+\section{Gr\'aficas Tambor Con Condiciones Abiertas}
+Cambiando las condiciones de frontera a condiciones abiertas, i.e. derivada nula en los bordes de la membrana, obtenemos una condición final como se muestra a continuación.
+\begin{center}
+
+\includegraphics[width=17cm]{graficaTamborAbiertas.pdf}  
+\end{center}
+\includegraphics{cortesAbiertas.pdf} 
+
+Y similarmente al caso anterior, tenemos gráficas de cada $900$ pasos de tiempo para un corte transversal central. 
+
+\subsection{Comparación de las diferentes condiciones de frontera}
+
+En ambos casos vemos que los cortes transversales corresponden a evoluciones de curvas que siguen la ecuación de onda, y en estos cortes es muy claro cómo cada caso respeta las respectivas condiciones de frontera. Además cabe resaltar el hecho que las soluciones tienen simetría en los ejes $x$, $y$, $x=y$ y $x=-y$ lo cual coincide con la condición inicial de la membrana sumado a la simetría de la región en la que se soluciona la ecuación de onda en dos dimensiones. Esto permite confiar en una implementación correcta del método de diferencias finitas. Sin embargo, en el caso de ambas condiciones se notan algunas asimetrías de los cortes respecto al centro después de $1800$ pasos de la simulación, que coinciden con una acumulación del error en el método utilizado.
+ 
+\end{document}
